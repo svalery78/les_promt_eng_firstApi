@@ -16,6 +16,10 @@ from openai import OpenAI
 
 # --- Настройки (правь под себя) -------------------------------------------------
 
+# Загружаем .env до чтения переменных ниже. override=True — чтобы значения из
+# .env имели приоритет над уже заданными переменными окружения.
+load_dotenv(override=True)
+
 # Модель. Можно задать в .env (OPENROUTER_MODEL) или прямо здесь.
 # Полный список slug-ов моделей: https://openrouter.ai/models
 # Примеры:
@@ -38,8 +42,6 @@ MAX_TOKENS = 800    # ограничение длины ответа
 PRINT_FULL_JSON = False
 
 # --- Подготовка клиента ---------------------------------------------------------
-
-load_dotenv()
 
 api_key = os.getenv("OPENROUTER_API_KEY")
 if not api_key:
